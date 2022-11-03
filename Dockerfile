@@ -1,7 +1,7 @@
 FROM ttbb/base:jdk11
 
-ARG version=1.15.1
-ARG download=1.15.1-bin-scala_2.12
+ARG version=1.16.0
+ARG download=1.16.0-bin-scala_2.12
 
 ENV FLINK_HOME /opt/sh/flink
 
