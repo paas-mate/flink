@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - v1.12.7
+      - release-1-12-7
   workflow_dispatch:
 
 permissions: write-all
