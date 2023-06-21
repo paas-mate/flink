@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - v1.12.7
   workflow_dispatch:
 
 permissions: write-all
@@ -28,13 +28,15 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ttbb/flink:nake
+          tags: ttbb/flink:nake-1-12-7
           platforms: linux/amd64,linux/arm64
       - name: Save Docker Images
-        run: docker pull ttbb/flink:nake;docker save ttbb/flink:nake -o flink-nake.tar.gz
+        run: docker pull ttbb/flink:nake-1-12-7;docker save ttbb/flink:nake-1-12-7 -o flink-nake-1-12-7.tar.gz
       - name: Release
         uses: shoothzj/latest-release-action@v1
         with:
-          files: flink-nake.tar.gz
+          tag_name: v1.12.7
+          release_name: v1.12.7
+          files: flink-nake-1-12-7.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
